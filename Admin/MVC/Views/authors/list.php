@@ -1,4 +1,6 @@
-    <a href="?mod=authors&act=add" type="button" class="btn btn-primary">Thêm mới</a>
+    <?php if (isset($_SESSION['isLogin_Admin']) && $_SESSION['isLogin_Admin'] == true) { ?>
+      <a href="?mod=authors&act=add" type="button" class="btn btn-primary">Thêm mới</a>
+    <?php } ?>
     <?php if (isset($_COOKIE['msg'])) { ?>
       <div class="alert alert-success">
         <strong>Thông báo</strong> <?= $_COOKIE['msg'] ?>
@@ -25,7 +27,9 @@
             <td><?= $row['password'] ?></td>
             <td><?= $row['status'] ?></td>
             <td>
-              <a href="?mod=authors&act=detail&id=<?= $row['id'] ?>" type="button" class="btn btn-success">Xem</a>
+              <?php if (isset($_SESSION['isLogin_Admin']) && $_SESSION['isLogin_Admin'] == true) { ?>
+                <a href="?mod=authors&act=detail&id=<?= $row['id'] ?>" type="button" class="btn btn-success">Xem</a>
+              <?php } ?>
               <a href="?mod=authors&act=edit&id=<?= $row['id'] ?>" type="button" class="btn btn-warning">Sửa</a>
               <a href="?mod=authors&act=delete&id=<?= $row['id'] ?>" onclick="return confirm('Bạn có thật sự muốn xóa ?');" type="button" class="btn btn-danger">Xóa</a>
             </td>

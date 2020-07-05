@@ -55,13 +55,13 @@
 					<div class="post-author">
 						<div class="media">
 							<div class="media-left">
-								<img class="media-object" src="public/img/authors/<?=$data_detail['th']?>" alt="">
+								<img class="media-object" src="public/img/authors/<?= $data_detail['th'] ?>" alt="">
 							</div>
 							<div class="media-body">
 								<div class="media-heading">
-									<h3><?=$data_detail['n']?></h3>
+									<h3><?= $data_detail['n'] ?></h3>
 								</div>
-								<?=$data_detail['info']?>
+								<?= $data_detail['info'] ?>
 								<ul class="author-social">
 									<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 									<li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -78,7 +78,7 @@
 				<div class="section-row">
 					<div class="post-comments">
 						<!-- comment -->
-						<div class="fb-comments" data-href="https://dxdbloger.000webhostapp.com/?mod=blog_post&id=<?=$data_detail['id']?>" data-numposts="5" data-width=""></div>
+						<div class="fb-comments" data-href="https://dxdbloger.000webhostapp.com/?mod=blog_post&id=<?= $data_detail['slug'] ?>" data-numposts="5" data-width=""></div>
 						<!-- /comment -->
 					</div>
 				</div>
@@ -89,31 +89,28 @@
 					<div class="section-title">
 						<h2>HỌP THƯ GÓP Ý</h2>
 					</div>
-					<form class="post-reply">
+					<?php if (isset($_COOKIE['msg'])) { ?>
+						<div class="alert alert-success">
+							<strong>Thông báo</strong> <?= $_COOKIE['msg'] ?>
+						</div>
+					<?php } ?>
+					<form class="post-reply" method="POST">
 						<div class="row">
-							<div class="col-md-4">
+							<div class="col-md-12">
 								<div class="form-group">
-									<span>Name *</span>
-									<input class="input" type="text" name="name">
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="form-group">
-									<span>Email *</span>
-									<input class="input" type="email" name="email">
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="form-group">
-									<span>Website</span>
-									<input class="input" type="text" name="website">
+									<span>Subject</span>
+									<input class="input" type="text" name="subject">
 								</div>
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
-									<textarea class="input" name="message" placeholder="Message"></textarea>
+									<textarea class="input" name="contents" placeholder="Contents"></textarea>
 								</div>
-								<button class="primary-button">Submit</button>
+							</div>
+							<div class="col-md-12">
+								<div class="form-group">
+									<input class="input" type="submit" name="submit">
+								</div>
 							</div>
 						</div>
 					</form>
@@ -132,9 +129,9 @@
 					</div>
 					<?php foreach ($data as $most) { ?>
 						<div class="post post-widget">
-							<a class="post-img" href="?mod=blog_post&id=<?= $most['id'] ?>"><img src=public/img/<?= $most['thumbnail']; ?> alt="" width="90px" height="90px"></a>
+							<a class="post-img" href="?mod=blog_post&id=<?= $most['slug'] ?>"><img src=public/img/<?= $most['thumbnail']; ?> alt="" width="90px" height="90px"></a>
 							<div class="post-body">
-								<h3 class="post-title"><a href="?mod=blog_post&id=<?= $most['id'] ?>"><?php echo $most['title'] ?></a></h3>
+								<h3 class="post-title"><a href="?mod=blog_post&id=<?= $most['slug'] ?>"><?php echo $most['title'] ?></a></h3>
 							</div>
 						</div>
 					<?php } ?>
@@ -146,9 +143,9 @@
 						</div>
 						<?php foreach ($data_view as $post) { ?>
 							<div class="post post-widget">
-								<a class="post-img" href="?mod=blog_post&id=<?= $post['id'] ?>"><img src=public/img/<?= $post['thumbnail']; ?> alt="" width="90px" height="90px"></a>
+								<a class="post-img" href="?mod=blog_post&id=<?= $post['slug'] ?>"><img src=public/img/<?= $post['thumbnail']; ?> alt="" width="90px" height="90px"></a>
 								<div class="post-body">
-									<h3 class="post-title"><a href="?mod=blog_post&id=<?= $post['id'] ?>"><?php echo $post['title'] ?></a></h3>
+									<h3 class="post-title"><a href="?mod=blog_post&id=<?= $post['slug'] ?>"><?php echo $post['title'] ?></a></h3>
 								</div>
 							</div>
 						<?php } ?>
@@ -157,7 +154,7 @@
 						</div>
 						<?php foreach ($data_random as $post) { ?>
 							<div class="post post-thumb">
-								<a class="post-img" href="?mod=blog_post&id=<?= $post['id'] ?>"><img src="public/img/<?= $post['thumbnail']; ?>" alt="" height="200px"></a>
+								<a class="post-img" href="?mod=blog_post&id=<?= $post['slug'] ?>"><img src="public/img/<?= $post['thumbnail']; ?>" alt="" height="200px"></a>
 								<div class="post-body">
 									<div class="post-meta">
 										<?php
@@ -184,7 +181,7 @@
 										<a class="<?= $kt; ?>" href="?mod=category&id=<?= $post['idcate'] ?>"><?= $post['t']; ?></a>
 										<span class="post-date"><?= $post['created_at']; ?></span>
 									</div>
-									<h3 class="post-title"><a href="?mod=blog_post&id=<?= $post['id'] ?>"><?= $post['title']; ?></a></h3>
+									<h3 class="post-title"><a href="?mod=blog_post&id=<?= $post['slug'] ?>"><?= $post['title']; ?></a></h3>
 								</div>
 							</div>
 						<?php } ?>

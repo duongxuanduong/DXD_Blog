@@ -35,4 +35,20 @@ class login
         session_destroy();
         header('location: ?mod=login');
     }
+    function countview(){
+        $query = "select sum(count_view) as s from posts";
+        return $this->conn->query($query)->fetch_assoc();
+    }
+    function countpost(){
+        $query = "select count(id) as c from posts";
+        return $this->conn->query($query)->fetch_assoc();
+    }
+    function countcategory(){
+        $query = "select count(id) as c from categories";
+        return $this->conn->query($query)->fetch_assoc();
+    }
+    function countauthor(){
+        $query = "select count(id)  as c from authors";
+        return $this->conn->query($query)->fetch_assoc();
+    }
 }

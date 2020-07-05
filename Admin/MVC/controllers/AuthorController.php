@@ -92,4 +92,7 @@ class AuthorController
         }
         $this->author_model->update($data);
     }
+    function profile(){
+        require_once("MVC/Views/Admin/index.php");
+    }
 }

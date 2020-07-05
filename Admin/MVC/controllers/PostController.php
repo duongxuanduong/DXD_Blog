@@ -10,9 +10,9 @@ class PostController
     public function list()
     {
 
-        if(isset($_SESSION['isLogin_Admin'])){
-              $data = $this->post_model->All();
-        }else{
+        if (isset($_SESSION['isLogin_Admin'])) {
+            $data = $this->post_model->All();
+        } else {
             $id = $_SESSION['author']['id'];
 
             $data = $this->post_model->All_post($id);
@@ -60,6 +60,19 @@ class PostController
             $status = $_POST['status'];
         }
         $created_at =  date('Y-m-d H:i:s');
+
+        $slug = $_POST['title'];
+        $slug = trim(mb_strtolower($slug));
+        $slug = preg_replace('/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/', 'a', $slug);
+        $slug = preg_replace('/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/', 'e', $slug);
+        $slug = preg_replace('/(ì|í|ị|ỉ|ĩ)/', 'i', $slug);
+        $slug = preg_replace('/(ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ)/', 'o', $slug);
+        $slug = preg_replace('/(ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ)/', 'u', $slug);
+        $slug = preg_replace('/(ỳ|ý|ỵ|ỷ|ỹ)/', 'y', $slug);
+        $slug = preg_replace('/(đ)/', 'd', $slug);
+        $slug = preg_replace('/[^a-z0-9-\s]/', '', $slug);
+        $slug = preg_replace('/([\s]+)/', '-', $slug);
+
         $data = array(
             'title' =>    $_POST['title'],
             'descripition'  =>   $_POST['descripition'],
@@ -68,7 +81,8 @@ class PostController
             'author_id' => $_SESSION['author']['id'],
             'categories_id' => $_POST['categories_id'],
             'status' => 0,
-            'created_at' => $created_at
+            'created_at' => $created_at,
+            'slug' => $slug
         );
         $this->post_model->store($data);
     }
@@ -95,7 +109,7 @@ class PostController
     public function update()
     {
         $target_dir = "../public/img/";  // thư mục chứa file upload
-        $thumbnail ="";
+        $thumbnail = "";
 
         $target_file = $target_dir . basename($_FILES["thumbnail"]["name"]); // link sẽ upload file lên
 
@@ -106,6 +120,18 @@ class PostController
             $thumbnail = basename($_FILES["thumbnail"]["name"]);
         }
         date_default_timezone_set('Asia/Ho_Chi_Minh');
+
+        $slug = $_POST['title'];
+        $slug = trim(mb_strtolower($slug));
+        $slug = preg_replace('/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/', 'a', $slug);
+        $slug = preg_replace('/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/', 'e', $slug);
+        $slug = preg_replace('/(ì|í|ị|ỉ|ĩ)/', 'i', $slug);
+        $slug = preg_replace('/(ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ)/', 'o', $slug);
+        $slug = preg_replace('/(ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ)/', 'u', $slug);
+        $slug = preg_replace('/(ỳ|ý|ỵ|ỷ|ỹ)/', 'y', $slug);
+        $slug = preg_replace('/(đ)/', 'd', $slug);
+        $slug = preg_replace('/[^a-z0-9-\s]/', '', $slug);
+        $slug = preg_replace('/([\s]+)/', '-', $slug);
 
         $status = 0;
         if (isset($_POST['status'])) {
@@ -121,13 +147,13 @@ class PostController
             'author_id' => $_SESSION['author']['id'],
             'categories_id' => $_POST['categories_id'],
             'status' => 0,
-            'created_at' => $created_at
+            'created_at' => $created_at,
+            'slug' => $slug
         );
-        if($thumbnail == ""){
+        if ($thumbnail == "") {
             unset($data['thumbnail']);
         }
 
         $this->post_model->update($data);
     }
-
 }

@@ -41,6 +41,9 @@ if (isset($_SESSION['isLogin_Admin']) && $_SESSION['isLogin_Admin'] == true) {
                 case 'list':
                     $controller_obj->list();
                     break;
+                case 'profile':
+                    $controller_obj->profile();
+                    break;
                 case 'detail':
                     $controller_obj->detail();
                     break;
@@ -148,6 +151,9 @@ if (isset($_SESSION['isLogin_Admin']) && $_SESSION['isLogin_Admin'] == true) {
                         break;
                     case 'update':
                         $controller_obj->update();
+                        break;
+                    case 'profile':
+                        $controller_obj->profile();
                         break;
                     default:
                         $controller_obj->list();

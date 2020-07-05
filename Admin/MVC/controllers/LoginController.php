@@ -16,6 +16,10 @@
         }
         public function admin()
         {
+            $countview = $this->login_model->countview();
+            $countpost = $this->login_model->countpost();
+            $countauthor = $this->login_model->countauthor();
+            $countcategory = $this->login_model->countcategory();
             require_once("MVC/Views/Admin/index.php");
         }
         public function logout()

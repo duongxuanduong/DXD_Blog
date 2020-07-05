@@ -53,7 +53,7 @@
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">
                 <?php
-                $mod = isset($_GET['mod']) ? $_GET['mod'] : "login";
+                $mod = isset($_GET['mod']) ? $_GET['mod'] : "Admin";
                 echo "Database " . $mod;
                 ?>
               </h6>
@@ -91,6 +91,9 @@
                       switch ($act) {
                         case 'list':
                           require_once('MVC/views/authors/list.php');
+                          break;
+                        case 'profile':
+                          require_once('MVC/views/authors/profile.php');
                           break;
                         case 'add':
                           require_once('MVC/views/authors/add.php');
@@ -139,13 +142,13 @@
                       $controller_obj = new LoginController();
                       switch ($act) {
                         case 'admin':
-                          $controller_obj->admin();
+                          require_once('MVC/views/login/admin.php');
                           break;
                         case 'logout':
                           $controller_obj->logout();
                           break;
                         default:
-                          $controller_obj->admin();
+                          require_once('MVC/views/login/admin.php');
                           break;
                       }
                       break;
@@ -163,8 +166,8 @@
                           case 'edit':
                             require_once('MVC/views/authors/edit.php');
                             break;
-                          case 'edit':
-                            require_once('MVC/views/authors/edit.php');
+                          case 'profile':
+                            require_once('MVC/views/authors/profile.php');
                             break;
                           default:
                             require_once('MVC/views/authors/list.php');

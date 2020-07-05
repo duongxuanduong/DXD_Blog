@@ -7,7 +7,7 @@
              <div class="row">
                  <div class="col-md-6">
                      <div class="post post-thumb">
-                         <a class="post-img" href="?mod=blog_post&id=<?= $post['id'] ?>"><img src="public/img/<?= $post['thumbnail']; ?>" alt="" height="345px"></a>
+                         <a class="post-img" href="?mod=blog_post&id=<?= $post['slug'] ?>"><img src="public/img/<?= $post['thumbnail']; ?>" alt="" height="345px"></a>
                          <div class="post-body">
                              <div class="post-meta">
                                  <?php
@@ -34,7 +34,7 @@
                                  <a class="<?php echo $kt; ?>" href="?mod=category&id=<?= $post['idcate'] ?>"><?= $post['t']; ?></a>
                                  <span class="post-date"><?php echo $post['created_at']; ?></span>
                              </div>
-                             <h3 class="post-title"><a href="?mod=blog_post&id=<?= $post['id'] ?>"><?php echo $post['title']; ?></a></h3>
+                             <h3 class="post-title"><a href="?mod=blog_post&id=<?= $post['slug'] ?>"><?php echo $post['title']; ?></a></h3>
                          </div>
                      </div>
                  </div>
@@ -53,7 +53,7 @@
                      <!-- post  6 bài đầu -->
                      <div class="col-md-4">
                          <div class="post">
-                             <a class="post-img" href="?mod=blog_post&id=<?= $post['id'] ?>"><img src="public/img/<?= $post['thumbnail']; ?>" alt="" height="207"></a>
+                             <a class="post-img" href="?mod=blog_post&id=<?= $post['slug'] ?>"><img src="public/img/<?= $post['thumbnail']; ?>" alt="" height="207"></a>
                              <div class="post-body">
                                  <div class="post-meta">
                                      <?php
@@ -80,7 +80,7 @@
                                      <a class="<?= $kt; ?>" href="?mod=category&id=<?= $post['idcate'] ?>"><?= $post['t']; ?></a>
                                      <span class="post-date"><?= $post['created_at']; ?></span>
                                  </div>
-                                 <h3 class="post-title"><a href="?mod=blog_post&id=<?= $post['id'] ?>"><?= $post['title']; ?></a></h3>
+                                 <h3 class="post-title"><a href="?mod=blog_post&id=<?= $post['slug'] ?>"><?= $post['title']; ?></a></h3>
                              </div>
                          </div>
                      </div>
@@ -94,7 +94,7 @@
                          <div class="row">
                              <div class="col-md-12">
                                  <div class="post">
-                                     <a class="post-img" href="?mod=blog_post&id=<?= $data_3["0"]['id'] ?>"><img src="public/img/<?= $data_3["0"]["thumbnail"]; ?>" alt="" height="600px"></a>
+                                     <a class="post-img" href="?mod=blog_post&id=<?= $data_3["0"]['slug'] ?>"><img src="public/img/<?= $data_3["0"]["thumbnail"]; ?>" alt="" height="600px"></a>
                                      <div class="post-body">
                                          <div class="post-meta">
                                              <?php
@@ -121,7 +121,7 @@
                                              <a class="<?php echo $kt; ?>" href="?mod=category&id=<?= $data_3["0"]['idcate'] ?>"><?= $data_3["0"]['t']; ?></a>
                                              <span class="post-date"><?= $data_3['0']['created_at']; ?></span>
                                          </div>
-                                         <h3 class="post-title"><a href="?mod=blog_post&id=<?= $data_3["0"]['id'] ?>"><?= $data_3["0"]['title']; ?></a></h3>
+                                         <h3 class="post-title"><a href="?mod=blog_post&id=<?= $data_3["0"]['slug'] ?>"><?= $data_3["0"]['title']; ?></a></h3>
                                      </div>
                                  </div>
                              </div>
@@ -129,7 +129,7 @@
                              <?php foreach ($data_4 as $post) { ?>
                                  <div class="col-md-6">
                                      <div class="post">
-                                         <a class="post-img" href="?mod=blog_post&id=<?= $post['id'] ?>"><img src="public/img/<?= $post['thumbnail']; ?>" alt="" height="207"></a>
+                                         <a class="post-img" href="?mod=blog_post&id=<?= $post['slug'] ?>"><img src="public/img/<?= $post['thumbnail']; ?>" alt="" height="207"></a>
                                          <div class="post-body">
                                              <div class="post-meta">
                                                  <?php
@@ -156,7 +156,7 @@
                                                  <a class="<?= $kt; ?>" href="?mod=category&id=<?= $post['idcate'] ?>"><?= $post['t']; ?></a>
                                                  <span class="post-date"><?= $post['created_at']; ?></span>
                                              </div>
-                                             <h3 class="post-title"><a href="?mod=blog_post&id=<?= $post['id'] ?>"><?= $post['title']; ?></a></h3>
+                                             <h3 class="post-title"><a href="?mod=blog_post&id=<?= $post['slug'] ?>"><?= $post['title']; ?></a></h3>
                                          </div>
                                      </div>
                                  </div>
@@ -170,9 +170,9 @@
                              </div>
                              <?php foreach ($data_view as $post) { ?>
                                  <div class="post post-widget">
-                                     <a class="post-img" href="?mod=blog_post&id=<?= $post['id'] ?>"><img src=public/img/<?= $post['thumbnail']; ?> alt="" width="90px" height="90px"></a>
+                                     <a class="post-img" href="?mod=blog_post&id=<?= $post['slug'] ?>"><img src=public/img/<?= $post['thumbnail']; ?> alt="" width="90px" height="90px"></a>
                                      <div class="post-body">
-                                         <h3 class="post-title"><a href="?mod=blog_post&id=<?= $post['id'] ?>"><?php echo $post['title'] ?></a></h3>
+                                         <h3 class="post-title"><a href="?mod=blog_post&id=<?= $post['slug'] ?>"><?php echo $post['title'] ?></a></h3>
                                      </div>
                                  </div>
                              <?php } ?>
@@ -181,7 +181,7 @@
                              </div>
                              <?php foreach ($data_random as $post) { ?>
                                  <div class="post post-thumb">
-                                     <a class="post-img" href="?mod=blog_post&id=<?= $post['id'] ?>"><img src="public/img/<?= $post['thumbnail']; ?>" alt="" height="200px"></a>
+                                     <a class="post-img" href="?mod=blog_post&id=<?= $post['slug'] ?>"><img src="public/img/<?= $post['thumbnail']; ?>" alt="" height="200px"></a>
                                      <div class="post-body">
                                          <div class="post-meta">
                                              <?php
@@ -208,7 +208,7 @@
                                              <a class="<?= $kt; ?>" href="?mod=category&id=<?= $post['idcate'] ?>"><?= $post['t']; ?></a>
                                              <span class="post-date"><?= $post['created_at']; ?></span>
                                          </div>
-                                         <h3 class="post-title"><a href="?mod=blog_post&id=<?= $post['id'] ?>"><?= $post['title']; ?></a></h3>
+                                         <h3 class="post-title"><a href="?mod=blog_post&id=<?= $post['slug'] ?>"><?= $post['title']; ?></a></h3>
                                      </div>
                                  </div>
                              <?php } ?>
@@ -268,7 +268,7 @@
                     ?>
                      <div class="col-md-4">
                          <div class="post">
-                             <a class="post-img" href="?mod=blog_post&id=<?= $post['id'] ?>"><img src="public/img/<?= $post['thumbnail']; ?>" alt="" height="207"></a>
+                             <a class="post-img" href="?mod=blog_post&id=<?= $post['slug'] ?>"><img src="public/img/<?= $post['thumbnail']; ?>" alt="" height="207"></a>
                              <div class="post-body">
                                  <div class="post-meta">
                                      <?php
@@ -295,7 +295,7 @@
                                      <a class="<?= $kt; ?>" href="?mod=category&id=<?= $post['idcate'] ?>"><?= $post['t']; ?></a>
                                      <span class="post-date"><?= $post['created_at']; ?></span>
                                  </div>
-                                 <h3 class="post-title"><a href="?mod=blog_post&id=<?= $post['id'] ?>"><?= $post['title']; ?></a></h3>
+                                 <h3 class="post-title"><a href="?mod=blog_post&id=<?= $post['slug'] ?>"><?= $post['title']; ?></a></h3>
                              </div>
                          </div>
                      </div>

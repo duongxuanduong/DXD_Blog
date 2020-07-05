@@ -23,19 +23,17 @@ class post extends model
         }
         return $data;
     }
-    function status($id){
-        
+    function status($id)
+    {
         $query = "UPDATE posts SET  status = 1  WHERE id = $id";
-
-
         $result = $this->conn->query($query);
-        
-        if ($result== true) {
-            setcookie('msg','Duyện thành công',time()+2);
+
+        if ($result == true) {
+            setcookie('msg', 'Duyện thành công', time() + 2);
             header('Location: ?mod=posts&act=list_select');
-        }else {
-            setcookie('msg','Update vào không thành công',time()+2);
+        } else {
+            setcookie('msg', 'Update vào không thành công', time() + 2);
             header('Location: ?mod=posts&act=list_select');
         }
-        }
+    }
 }

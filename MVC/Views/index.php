@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
     <title>DXD BLOG</title>
 
     <!-- Google font -->
@@ -41,7 +40,7 @@
                 <div class="container">
                     <!-- logo -->
                     <div class="nav-logo">
-                        <a href="?mod=home" class="logo"><img src="public/img/logo-lb.png" alt="abc"></a>
+                        <a href="?mod=home" class="logo"><img src="public/img/logo-lb.png" alt=""></a>
                     </div>
                     <!-- /logo -->
 
@@ -91,9 +90,9 @@
                     <h3>Nổi bật</h3>
                     <?php foreach ($data_view as $post) { ?>
                         <div class="post post-widget">
-                            <a class="post-img" href="?mod=blog_post&id=<?= $post['id'] ?>"><img src=./public/img/<?= $post['thumbnail']; ?> alt="" width="90px" height="90px"></a>
+                            <a class="post-img" href="?mod=blog_post&id=<?= $post['slug'] ?>"><img src=./public/img/<?= $post['thumbnail']; ?> alt="" width="90px" height="90px"></a>
                             <div class="post-body">
-                                <h3 class="post-title"><a href="?mod=blog_post&id=<?= $post['id'] ?>"><?= $post['title'] ?></a></h3>
+                                <h3 class="post-title"><a href="?mod=blog_post&id=<?= $post['slug'] ?>"><?= $post['title'] ?></a></h3>
                             </div>
                         </div>
                     <?php } ?>
@@ -131,7 +130,7 @@
         case 'category':
             require_once("MVC/Views/category.php");
             break;
-             case 'blog_post':
+        case 'blog_post':
             require_once("MVC/Views/blog_post.php");
             break;
         default:
@@ -171,9 +170,9 @@
                             <div class="footer-widget">
                                 <h3 class="footer-title">Thông tin</h3>
                                 <ul class="footer-links">
-                                    <li><a href="about.html">Dương Xuân Dưỡng</a></li>
+                                    <li><a href="#">Dương Xuân Dưỡng</a></li>
                                     <li><a href="#">Duongls2ls@gmail.com</a></li>
-                                    <li><a href="contact.html">0976942493</a></li>
+                                    <li><a href="#">0976942493</a></li>
                                 </ul>
                             </div>
                         </div>
